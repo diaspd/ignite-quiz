@@ -1,15 +1,16 @@
-import { Pressable, PressableProps, Text } from 'react-native';
+import { useEffect } from 'react';
+import { Pressable, PressableProps } from 'react-native';
 
 import Animated, { 
   useSharedValue,
   useAnimatedStyle, 
   withSpring,
-  withTiming
+  withTiming,
+  interpolateColor
 } from 'react-native-reanimated';
 
 import { THEME } from '../../styles/theme';
 import { styles } from './styles';
-
 
 const TYPE_COLORS = {
   EASY: THEME.COLORS.BRAND_LIGHT,
@@ -25,12 +26,31 @@ type Props = PressableProps & {
 
 export function Level({ title, type = 'EASY', isChecked = false, ...rest }: Props) {
   const scale = useSharedValue(1);
+  const checked = useSharedValue(1);
 
   const COLOR = TYPE_COLORS[type];
 
   const animatedContainerStyle = useAnimatedStyle(() => {
     return {
-      transform: [{ scale: scale.value }]  
+      transform: [{ scale: scale.value }],
+      backgroundColor: interpolateColor(
+        // values
+        checked.value,
+        // possible values
+        [0, 1],
+        // which color will be displayed based on values above
+        ['transparent', COLOR]
+      )
+    }
+  })
+
+  const animatedTextStyle = useAnimatedStyle(() => {
+    return {
+      color: interpolateColor(
+        checked.value,
+        [0, 1],
+        [COLOR, THEME.COLORS.GREY_100]
+      )
     }
   })
 
@@ -42,22 +62,27 @@ export function Level({ title, type = 'EASY', isChecked = false, ...rest }: Prop
     scale.value = withSpring(1);
   }
 
+  useEffect(() => {
+    checked.value = withTiming(isChecked ? 1 : 0)
+  }, [isChecked])
+
   return (
     <Pressable onPressIn={onPressIn} onPressOut={onPressOut} {...rest}>
       <Animated.View style={
         [
           styles.container,
           animatedContainerStyle,
-          { borderColor: COLOR, backgroundColor: isChecked ? COLOR : 'transparent' }
+          { borderColor: COLOR,  }
         ]
       }>
-        <Text style={
+        <Animated.Text style={
           [
             styles.title,
-            { color: isChecked ? THEME.COLORS.GREY_100 : COLOR }
-          ]}>
+            animatedTextStyle
+          ]}
+        >
           {title}
-        </Text>
+        </Animated.Text>
       </Animated.View>
     </Pressable>
   );
