@@ -82,7 +82,10 @@ export function History() {
                 containerStyle={styles.swipeableContainer}
                 renderLeftActions={() => {
                   return(
-                    <Pressable style={styles.swipeableRemove}>
+                    <Pressable 
+                      style={styles.swipeableRemove}
+                      onPress={() => handleRemove(item.id)}
+                    >
                       <Trash size={32} color={THEME.COLORS.GREY_100} />
                     </Pressable>
                   )
