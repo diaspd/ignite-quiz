@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { View, ScrollView, Alert, Pressable } from 'react-native';
+import { View, ScrollView, Alert } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 import { HouseLine, Trash } from 'phosphor-react-native';
@@ -89,14 +89,14 @@ export function History() {
                 }}
                 overshootLeft={false}
                 containerStyle={styles.swipeableContainer}
+                leftThreshold={10}
+                renderRightActions={() => null}
+                onSwipeableOpen={() => handleRemove(item.id, index)}
                 renderLeftActions={() => {
                   return(
-                    <Pressable 
-                      style={styles.swipeableRemove}
-                      onPress={() => handleRemove(item.id, index)}
-                    >
+                    <View style={styles.swipeableRemove}>
                       <Trash size={32} color={THEME.COLORS.GREY_100} />
-                    </Pressable>
+                    </View>
                   )
                 }}
               >
