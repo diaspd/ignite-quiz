@@ -13,6 +13,8 @@ interface Params {
 export function Finish() {
   const route = useRoute();
   const { points, total } = route.params as Params;
+  
+  const isScoreGood = Number(points) > (Number(points) % 2) 
 
   const { navigate } = useNavigation();
 
@@ -20,7 +22,7 @@ export function Finish() {
     <View style={styles.container}>
       <View style={styles.message}>
         <Text style={styles.title}>
-          Parabéns!
+          {isScoreGood ? 'Parabéns!' : 'Que pena'}
         </Text>
 
         <Text style={styles.subtitle}>
