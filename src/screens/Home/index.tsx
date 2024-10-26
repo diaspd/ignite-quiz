@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react';
 import { FlatList, View } from 'react-native';
 import { Trophy } from 'phosphor-react-native';
-
 import { useNavigation } from '@react-navigation/native';
-
-import Animated from 'react-native-reanimated';
 
 import { Level } from '../../components/Level';
 import { Header } from '../../components/Header';
@@ -12,7 +9,6 @@ import { QuizCard } from '../../components/QuizCard';
 
 import { styles } from './styles';
 import { QUIZZES } from '../../data/quizzes';
-import { Button } from '../../components/Button';
 
 export function Home() {
   const [quizzes, setQuizzes] = useState(QUIZZES);
@@ -57,8 +53,8 @@ export function Home() {
         renderItem={({ item, index }) => (
           <QuizCard
             data={item}
-            onPress={() => navigate('quiz', { id: item.id })}
             index={index}
+            onPress={() => navigate('quiz', { id: item.id })}
           />
         )}
         numColumns={2}
