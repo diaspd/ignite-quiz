@@ -19,7 +19,8 @@ export const THEME = {
 
     STAR_BLUE: "#57B6E5",
     STAR_GREEN: "#00B37E",
-    STAR_GRAY: "#6F6F6F"
+    STAR_GRAY: "#6F6F6F",
+    STAR_RED: "#F75A68"
   },
   FONTS: {
     REGULAR: "Roboto_400Regular",

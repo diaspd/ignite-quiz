@@ -22,7 +22,7 @@ export function Finish() {
   return (
     <View style={styles.container}>
 
-      <Stars />
+      <Stars isScoreGood={isScoreGood} />
 
       <View style={styles.message}>
         <Text style={styles.title}>

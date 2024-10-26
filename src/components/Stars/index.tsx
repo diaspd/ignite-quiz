@@ -3,11 +3,16 @@ import Animated, { BounceIn } from "react-native-reanimated";
 import { Canvas, Easing, LinearGradient, Path, useLoop } from "@shopify/react-native-skia";
 
 import TrophySvg from '../../assets/trophy.svg'
+import TrophyLoseSvg from '../../assets/trophy-lose.svg'
 
 import { styles } from "./styles";
 import { THEME } from "../../styles/theme";
 
-export function Stars() {
+type Props = {
+  isScoreGood: boolean
+} 
+
+export function Stars({ isScoreGood }: Props) {
   const backStarsBlinkAnimated = useLoop({
     duration: 1500,
     easing: Easing.ease
@@ -27,7 +32,7 @@ export function Stars() {
           <LinearGradient
             start={{ x: 222, y: 212 }}
             end={{ x: 238, y: 222 }}
-            colors={[THEME.COLORS.STAR_BLUE, THEME.COLORS.BRAND_LIGHT]}
+            colors={isScoreGood ? [THEME.COLORS.STAR_BLUE, THEME.COLORS.BRAND_LIGHT] : [THEME.COLORS.STAR_RED]}
           />
         </Path>
         <Path
@@ -37,7 +42,7 @@ export function Stars() {
           <LinearGradient
             start={{ x: 233, y: 67 }}
             end={{ x: 244, y: 75 }}
-            colors={[THEME.COLORS.STAR_BLUE, THEME.COLORS.BRAND_LIGHT]}
+            colors={isScoreGood ? [THEME.COLORS.STAR_BLUE, THEME.COLORS.BRAND_LIGHT] : [THEME.COLORS.STAR_RED]}
           />
         </Path>
         <Path
@@ -47,7 +52,7 @@ export function Stars() {
           <LinearGradient
             start={{ x: 83, y: 7 }}
             end={{ x: 94, y: 14 }}
-            colors={[THEME.COLORS.STAR_BLUE, THEME.COLORS.BRAND_LIGHT]}
+            colors={isScoreGood ? [THEME.COLORS.STAR_BLUE, THEME.COLORS.BRAND_LIGHT] : [THEME.COLORS.STAR_RED]}
           />
         </Path>
         <Path
@@ -57,7 +62,7 @@ export function Stars() {
           <LinearGradient
             start={{ x: 243, y: 177 }}
             end={{ x: 254, y: 184 }}
-            colors={[THEME.COLORS.STAR_BLUE, THEME.COLORS.BRAND_LIGHT]}
+            colors={isScoreGood ? [THEME.COLORS.STAR_BLUE, THEME.COLORS.BRAND_LIGHT] : [THEME.COLORS.STAR_RED]}
           />
         </Path>
         <Path 
@@ -66,7 +71,7 @@ export function Stars() {
           <LinearGradient
             start={{ x: 203, y: 27 }}
             end={{ x: 219, y: 38 }}
-            colors={[THEME.COLORS.STAR_BLUE, THEME.COLORS.BRAND_LIGHT]}
+            colors={isScoreGood ? [THEME.COLORS.STAR_BLUE, THEME.COLORS.BRAND_LIGHT] : [THEME.COLORS.STAR_RED]}
           />
         </Path>
         <Path 
@@ -75,7 +80,7 @@ export function Stars() {
           <LinearGradient
             start={{ x: 26, y: 0 }}
             end={{ x: 42, y: 10 }}
-            colors={[THEME.COLORS.STAR_BLUE, THEME.COLORS.BRAND_LIGHT]}
+            colors={isScoreGood ? [THEME.COLORS.STAR_BLUE, THEME.COLORS.BRAND_LIGHT] : [THEME.COLORS.STAR_RED]}
           />
         </Path>
         <Path
@@ -85,7 +90,7 @@ export function Stars() {
           <LinearGradient
             start={{ x: 12, y: 74 }}
             end={{ x: 23, y: 82 }}
-            colors={[THEME.COLORS.STAR_BLUE, THEME.COLORS.BRAND_LIGHT]}
+            colors={isScoreGood ? [THEME.COLORS.STAR_BLUE, THEME.COLORS.BRAND_LIGHT] : [THEME.COLORS.STAR_RED]}
           />
         </Path>
         <Path 
@@ -94,7 +99,7 @@ export function Stars() {
           <LinearGradient
             start={{ x: 0, y: 182 }}
             end={{ x: 16, y: 192 }}
-            colors={[THEME.COLORS.STAR_BLUE, THEME.COLORS.BRAND_LIGHT]}
+            colors={isScoreGood ? [THEME.COLORS.STAR_BLUE, THEME.COLORS.BRAND_LIGHT] : [THEME.COLORS.STAR_RED]}
           />
         </Path>
         <Path
@@ -104,7 +109,7 @@ export function Stars() {
           <LinearGradient
             start={{ x: 21, y: 225 }}
             end={{ x: 32, y: 232 }}
-            colors={[THEME.COLORS.STAR_BLUE, THEME.COLORS.BRAND_LIGHT]}
+            colors={isScoreGood ? [THEME.COLORS.STAR_BLUE, THEME.COLORS.BRAND_LIGHT] : [THEME.COLORS.STAR_RED]}
           />
         </Path>
         <Path
@@ -125,7 +130,7 @@ export function Stars() {
       </Canvas>
 
       <Animated.View entering={BounceIn}>
-        <TrophySvg />
+        {isScoreGood ? <TrophySvg /> : <TrophyLoseSvg /> }
       </Animated.View>
     </View>
   )
