@@ -1,19 +1,67 @@
-<p align="center">
-  <img alt="Rocketseat Education" src="https://avatars.githubusercontent.com/u/69590972?s=200&v=4" width="100px" />
-</p>
+<h1 align="center">
+   Ignite Quiz
+</h1> 
 
-<p align="center">
-  <img src="https://img.shields.io/static/v1?label=Rocketseat&message=Education&color=8257e5&labelColor=202024" alt="Rocketseat Project" />
-  <a href="LICENSE"><img  src="https://img.shields.io/static/v1?label=License&message=MIT&color=8257e5&labelColor=202024" alt="License"></a>
-</p>
+<div align="center">
+  <b>
+    <a href="#-Technologies"><b>Technologies</b></a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="#-Project"><b>Project</b></a>&nbsp;&nbsp;&nbsp;
+  </b>  
+</div>
 
+---
 
-## 💻 Projeto
+<div align="center">
+<!-- <img alt="project img" title="project img" src="./mobile/assets/templates/img.svg" width="72%" />  -->
+<!--  <img alt="project gif" title="project gif" src="./src/assets/template.gif" width="24%" />  -->
+</div> 
 
-Ignite Quiz
+</br>
+
+## 🚀 Getting started
+
+Clone the project and access the folder.
+
+```bash
+# Clone the project
+$ git clone https://github.com/diaspd/
+```
+
+## Setting and running the app
+
+```bash
+$ npm install
+$ npx expo start 
+```
+
+</br>
+
+## 💻 Technologies
+
+This project was developed with the following technologies:
+<b>
+- React Native
+- Type Script
+- Expo
+- Skia
+- Expo av
+- Expo Haptics
+- React Native Gesture Handler
+</b>
+
+</br>
+
+## 📄 Project
+💰 A project made to use animation, vibration and better user experience.
+
+<br></br>
 
 ## 📝 Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
----
+</br>
+
+Made with ♥ by Pedro Dias. 👋 Follow me on social media! </br>
+
+If you can give a little star, I appreciate it 🤩
