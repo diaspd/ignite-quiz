@@ -24,7 +24,7 @@ Clone the project and access the folder.
 
 ```bash
 # Clone the project
-$ git clone https://github.com/diaspd/
+$ git clone https://github.com/diaspd/ignite-quiz.git
 ```
 
 ## Setting and running the app
